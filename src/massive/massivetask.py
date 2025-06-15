@@ -11,10 +11,10 @@
 # Выведите модель телефона, номер которой запросил пользователь. А если он запросил номер, которого нет (отрицательное число, ноль или больше, чем есть в массиве) 
 # — сообщите ему, что он ошибся.
 print('Мужские имена')
-male_name = ['Слава','Адольф','Герман','Импроба','Пентак','Руслан']
+male_name = ['Слава', 'Адольф', 'Герман', 'Импроба', 'Пентак', 'Руслан']
 print(male_name)
 print('Женские имена')
-female_name = ['Алина','Мария','Людмила','Верба','Лида','Соня']
+female_name = ['Алина', 'Мария', 'Людмила', 'Верба', 'Лида', 'Соня']
 print(female_name)
 add_name = []
 print('Слияние имен')
@@ -22,7 +22,7 @@ add_name.extend(male_name)
 add_name.extend(female_name)
 print(add_name)
 
-model_phone = ['Honor','Samsung','Iphone','Ulefon','Xiaomi','Google Pixel','Vivo','Motorolla','Nokia','Lenovo']
+model_phone = ['Honor', 'Samsung', 'Iphone', 'Ulefon', 'Xiaomi', 'Google Pixel', 'Vivo', 'Motorolla', 'Nokia', 'Lenovo']
 print('Количество телефонов:', len(model_phone) )
 print('Вам предоставляется подарок, пожалуйста, выберите любое число!')
 
