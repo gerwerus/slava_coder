@@ -31,7 +31,7 @@ number_phone = int(input())
 
 # если элемент массива x = 0, x > 1, x < 10 иначе ошибка
 
-if number_phone < 11 and number_phone > -1:
+if number_phone < len(model_phone) and number_phone > -1:
     print((model_phone[number_phone]))
 else:
     print('Увы, вы ошиблись!')
