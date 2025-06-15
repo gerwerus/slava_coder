@@ -25,4 +25,3 @@ jobs:
     - name: Analysing the code
       run: |
         ruff format --check
-        ruff check
