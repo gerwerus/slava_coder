@@ -8,20 +8,15 @@
 print("Регистрация на сайте chicken.net")
 login = input("Введите логин: ")
 password = input("Введите пароль: ")
-print("Вы зарегистрировались!")
-
-print("Авторизация на сайте chiken.net")
-login_1 = input("Введите логин: ")
-if login_1 == login:
-    print("Логин подтвержден")
-    password_1 = input("Введите пароль: ")
-    password_2 = input("Введите пароль повторно: ")
-    if password_2 == password_1:
-        if password_1 == password:
-            print("Вы успешно вошли в систему")
-        else:
-            print("Пароль неверный!")
+password_1 = input("Введите пароль повторно: ")
+if password == password_1:
+    print("Вы зарегистрировались!")
+    print("Авторизация на сайте chiken.net")
+    new_login = input("Введите логин: ")
+    password_2 = input("Введите пароль: ")
+    if new_login == login and password_2 == password:
+        print("Вы успешно авторизовались!")
     else:
-        print("Ошибка! Пароли не совпадают!")
+        print("Ошибка авторизации!")
 else:
-    print("Логин не подтвержден")
+    print("Ошибка, пароль неверный!")
