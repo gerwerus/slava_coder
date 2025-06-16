@@ -10,23 +10,34 @@
 
 # Выведите модель телефона, номер которой запросил пользователь. А если он запросил номер, которого нет (отрицательное число, ноль или больше, чем есть в массиве)
 # — сообщите ему, что он ошибся.
-print('Мужские имена')
-male_name = ['Слава', 'Адольф', 'Герман', 'Импроба', 'Пентак', 'Руслан']
+print("Мужские имена")
+male_name = ["Слава", "Адольф", "Герман", "Импроба", "Пентак", "Руслан"]
 print(male_name)
-print('Женские имена')
-female_name = ['Алина', 'Мария', 'Людмила', 'Верба', 'Лида', 'Соня']
+print("Женские имена")
+female_name = ["Алина", "Мария", "Людмила", "Верба", "Лида", "Соня"]
 print(female_name)
 add_name = []
-print('Слияние имен')
+print("Слияние имен")
 add_name.extend(male_name)
 add_name.extend(female_name)
 print(add_name)
 
-model_phone = ['Honor', 'Samsung', 'Iphone', 'Ulefon', 'Xiaomi', 'Google Pixel', 'Vivo', 'Motorolla', 'Nokia', 'Lenovo']
-print('Количество телефонов:', len(model_phone))
-print('Вам предоставляется подарок, пожалуйста, выберите любое число!')
+model_phone = [
+    "Honor",
+    "Samsung",
+    "Iphone",
+    "Ulefon",
+    "Xiaomi",
+    "Google Pixel",
+    "Vivo",
+    "Motorolla",
+    "Nokia",
+    "Lenovo",
+]
+print("Количество телефонов:", len(model_phone))
+print("Вам предоставляется подарок, пожалуйста, выберите любое число!")
 
-print('Пользователь запрашивает модель телефона: ')
+print("Пользователь запрашивает модель телефона: ")
 number_phone = int(input())
 
 # если элемент массива x = 0, x > 1, x < 10 иначе ошибка
@@ -34,4 +45,4 @@ number_phone = int(input())
 if number_phone < len(model_phone) and number_phone > -1:
     print((model_phone[number_phone]))
 else:
-    print('Увы, вы ошиблись!')
+    print("Увы, вы ошиблись!")
