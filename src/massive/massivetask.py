@@ -22,7 +22,18 @@ add_name.extend(male_name)
 add_name.extend(female_name)
 print(add_name)
 
-model_phone = ['Honor', 'Samsung', 'Iphone', 'Ulefon', 'Xiaomi', 'Google Pixel', 'Vivo', 'Motorolla', 'Nokia', 'Lenovo']
+model_phone = [
+    'Honor',
+    'Samsung',
+    'Iphone',
+    'Ulefon',
+    'Xiaomi',
+    'Google Pixel',
+    'Vivo',
+    'Motorolla',
+    'Nokia',
+    'Lenovo',
+]
 print('Количество телефонов:', len(model_phone))
 print('Вам предоставляется подарок, пожалуйста, выберите любое число!')
 
