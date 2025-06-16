@@ -7,26 +7,24 @@
 # Если от 0 до 1.5, то программа выводит ужасно (1 звезда)
 # Оценивать в звездах ⭐
 
-print("Пожалуйста, оцените обслуживание в отеле!")
-grade = float(input("Введите оценку: "))
-
 import emoji
+print('Пожалуйста, оцените обслуживание в отеле!')
+grade = float(input('Введите оценку: '))
 
-star = ":star:"
-star1 = emoji.emojize(star)
-star_m = [star1, star1, star1, star1, star1, star1, star1]
-stars_5 = " ".join(star_m[0:5])
-stars_4 = " ".join(star_m[0:4])
-stars_3 = " ".join(star_m[0:3])
-stars_2 = " ".join(star_m[0:2])
-stars_1 = " ".join(star_m[0:1])
-if grade > 4.4 and grade < 5.1:
-    print("Отлично", stars_5)
-elif grade > 3.4 and grade < 4.5:
-    print("Хорошо", stars_4)
-elif grade > 2.4 and grade < 3.5:
-    print("Нормально", stars_3)
-elif grade > 1.4 and grade < 2.5:
-    print("Плохо", stars_2)
-elif grade > -0.1 and grade < 1.5:
-    print("Ужасно", stars_1)
+star_code = ':star:'
+star_emoji = emoji.emojize(star_code)
+stars_5 = f'{star_emoji} ' * 5
+stars_4 = f'{star_emoji} ' * 4
+stars_3 = f'{star_emoji} ' * 3
+stars_2 = f'{star_emoji} ' * 2
+stars_1 = f'{star_emoji} ' * 1
+if grade >= 4.5 and grade <= 5:
+    print('Отлично', stars_5)
+elif grade >= 3.5 and grade < 4.5:
+    print('Хорошо', stars_4)
+elif grade >= 2.5 and grade < 3.5:
+    print('Нормально', stars_3)
+elif grade >= 1.5 and grade < 2.5:
+    print('Плохо', stars_2)
+elif grade >= 0 and grade < 1.5:
+    print('Ужасно', stars_1)
