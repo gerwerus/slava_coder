@@ -16,6 +16,8 @@ def password_change_func(password_last, password_last_confirm):
             base[login] = password_change
             print('Вы успешно сменить пароль!')
             print(base)
+    else:
+        print('Пароли не совпадают')
 
 
 base = {}
@@ -50,9 +52,6 @@ while True:
         elif password != password_confirm:
             print('Пароли не совпадают!')
             continue
-        else:
-            print('Error!')
-            break
     elif choice == '2':  # ПРОЦЕСС АВТОРИЗАЦИИ
         while i < 3:
             print('Процесс авторизации')
@@ -74,11 +73,13 @@ while True:
                 elif password != base[login]:  # 3 ПОПЫТКИ ВХОДА ПРИ НЕПРАВИЛЬНОМ ПАРОЛЕ
                     i += 1
                     print('Пароль не верный')
-                    continue
 
             else:
                 print('Такой пользователь не зарегистрирован')
                 continue
+        else:
+            print('Вы использовали все попытки, доступ авторизации недоступен')
+            break
     elif choice == '3':  # ВЫХОД ИЗ СИСТЕМЫ
         print('Вы вышли из программы')
         break
