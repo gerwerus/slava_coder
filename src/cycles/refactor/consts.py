@@ -67,5 +67,5 @@ base_kronstadt = {
 id_route_mapping = {
     1: [base_pavlovsk, pavlovsk_route_name],
     2: [base_vyborg, vyborg_route_name],
-    3: [base_kronstadt, kronstadt_route_name]
+    3: [base_kronstadt, kronstadt_route_name],
 }
