@@ -4,8 +4,7 @@
 
 
 def print_fio(user_name, user_patronymic):
-    initials = f'{user_name[0]}.{user_patronymic[0]}.'
-    return str(initials)
+    return f'{user_name[0]}.{user_patronymic[0]}.'
 
 
 user_surname = input('Введите фамилию:\n')

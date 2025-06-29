@@ -7,77 +7,72 @@
 # 3.6 Удаление раздела ✅
 
 
-def product_price_change(shop):
-    product_print(shop)
+def change_price_product(shop):
+    print_all_product(shop)
     print('Выберите что сделать: ')
     choice_change = input('1. Снизить\n2. Повысить\n')
-    if choice_change == '1' or choice_change == '2':
-        price_change = int(input('Сумма изменения:\n'))
-        product_group = input('Выберите раздел\n')
-        if product_group in shop:
-            product = input('Выберите продукт\n')
-            if product in shop[product_group]:
-                for product, price in shop[product_group].items():
-                    if choice_change == '1':
-                        price_new = price - price_change
-                        shop[product_group].update({product: price_new})
-                    elif choice_change == '2':
-                        price_new = price + price_change
-                        shop[product_group].update({product: price_new})
-                return shop
-            else:
-                print('Такого продукта не существует')
-        else:
-            print('Такого раздела не существует')
-    else:
+    if choice_change not in ['1', '2']:
         print('Ошибка')
+        return
+    price_change = int(input('Сумма изменения:\n'))
+    product_group = input('Выберите раздел\n')
+    if product_group not in shop:
+        print('Такого раздела не существует')
+        return
+    product = input('Выберите продукт\n')
+    if product in shop[product_group]:
+        if choice_change == '1':
+            price_new = shop[product_group][product] - price_change
+        elif choice_change == '2':
+            price_new = shop[product_group][product] + price_change
+        shop[product_group].update({product: price_new})
+        return
+    print('Такого продукта не существует')
 
 
-def product_print(shop):  # Печать товаров
-    if choice == '3':  # Печать всех товаров
-        for group, array in shop.items():
-            print('Раздел: ' + group)
-            for products, price in array.items():
-                print(products + ' - ' + str(price))
-    elif choice == '4':  # Печать товаров выбранного раздела
-        print(f'Раздел: {choice_group}')
-        for product, price in shop[choice_group].items():
-            print(f'{product} - {price}')
+def print_all_product(shop):
+    for group, array in shop.items():
+        print('Раздел: ' + group)
+        for products, price in array.items():
+            print(products + ' - ' + str(price))
 
 
-def products_add(user_group, shop, product, cost, products):
-    if user_group in shop:
-        shop[user_group].update(products)
+def print_group_product(shop, choice_group):
+    for product, price in shop[choice_group].items():
+        print(f'{product} - {price}')
+
+
+def add_products(entered_group, shop, products):
+    if entered_group in shop:
+        shop[entered_group].update(products)
         print(f'Товар {product} добавлен c ценой {cost}')
-    elif user_group not in shop:
-        shop.update({user_group: {}})
-        shop[user_group].update(products)
-        print(f'Создан раздел {user_group} и добавлен товар {product} с ценой {cost}')
+    elif entered_group not in shop:
+        shop.update({entered_group: {products}})
+        print(f'Создан раздел {entered_group} и добавлен товар {product} с ценой {cost}')
     else:
         return 'Ошибка'
-    return shop
+    return
 
 
-def products_del(shop):
-    user_group = input('Выберите раздел:\n').lower()
-    if user_group in shop:
+def del_products(shop):
+    entered_group = input('Выберите раздел:\n').lower()
+    if entered_group in shop:
         product = input('Какой продукт удалить?\n').lower()
-        if product in shop[user_group]:
-            del shop[user_group][product]
+        if product in shop[entered_group]:
+            del shop[entered_group][product]
             print(f'Товар {product} удален')
-            return shop
-        else:
-            print('Такой товар не найден!')
+            return
+        print('Такой товар не найден!')
     else:
         print('Такой раздел не найден!')
 
 
 def group_del(shop):
-    user_group = input('Выберите раздел:\n').lower()
-    if user_group in shop:
-        del shop[user_group]
-        print(f'Раздел {user_group} удален')
-        return shop
+    entered_group = input('Выберите раздел:\n').lower()
+    if entered_group in shop:
+        del shop[entered_group]
+        print(f'Раздел {entered_group} удален')
+        return
     else:
         print('Такой раздел не найден')
 
@@ -88,30 +83,40 @@ shop = {'мучное': {'хлеб': 50, 'пряники': 70}, 'молочно�
 print('Вы находитесь в меню редактирования!')
 while True:
     choice = input(
-        '1. Добавить товар в раздел\n2. Удалить товар из раздела\n3. Вывести все товары и разделы\n'
-        '4. Вывести товары выбранного раздела\n5. Повысить/Снизить цену товаров\n6. Удалить раздел\n'
-        '7. Выйти из программы\n'
+        """1. Добавить товар в раздел
+2. Удалить товар из раздела
+3. Вывести все товары и разделы
+4. Вывести товары выбранного раздела
+5. Повысить/Снизить цену товаров
+6. Удалить раздел
+7. Выйти из программы
+"""
     )
-    if choice == '1':
-        user_group = input('Выберите раздел:\n').lower()
-        product = input('Какой продукт добавить?\n').lower()
-        if product not in shop[user_group]:
-            cost = int(input('Укажите цену\n'))
-            products_add(user_group, shop, {product: cost})
-        else:
-            print(f'{product} уже есть в магазине')
-    elif choice == '2':
-        products_del(shop)
-    elif choice == '3':
-        product_print(shop)
-    elif choice == '4':
-        choice_group = input('Введите раздел\n').lower()
-        product_print(shop)
-    elif choice == '5':
-        choice = '3'
-        product_price_change(shop)
-    elif choice == '6':
-        group_del(shop)
-    elif choice == '7':
-        print('Выход из программы!')
-        break
+    match choice:
+        case '1':
+            entered_group = input('Выберите раздел:\n').lower()
+            product = input('Какой продукт добавить?\n').lower()
+            if product not in shop[entered_group]:
+                cost = int(input('Укажите цену\n'))
+                add_products(entered_group, shop, {product: cost})
+            else:
+                print(f'{product} уже есть в магазине')
+        case '2':
+            del_products(shop)
+        case '3':
+            print_all_product(shop)
+        case '4':
+            choice_group = input('Введите раздел\n').lower()
+            if choice_group in shop:
+                print_group_product(shop, choice_group)
+            else:
+                print(f'Такого {choice_group} не существует')
+        case '5':
+            change_price_product(shop, choice)
+        case '6':
+            group_del(shop)
+        case '7':
+            print('Выход из программы!')
+            break
+        case _:
+            print('Ошибка, ввведите число от 1 до 7!')

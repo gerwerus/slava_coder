@@ -39,16 +39,8 @@ def count_vowel(word_input):
             continue
     vewel_count = len(vowel_in_word)
     consonant_count = len(consonant_in_word)
-    j = 0
-    while j < vewel_count:
-        j += 1
-    else:
-        print(f'Гласных {j}')
-    k = 0
-    while k < consonant_count:
-        k += 1
-    else:
-        print(f'Согласных {k}')
+    print(f'Гласных {vewel_count}')
+    print(f'Согласных {consonant_count}')
 
 
 word_input = input('Введите слово:\n')
