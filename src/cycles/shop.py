@@ -45,8 +45,9 @@ if username.lower() == 'admin':  # КОД ДЛЯ АДМИНИСТРАТОРА
         print('Обновленный список товаров: ', shop)
 elif username.lower() != 'admin':  # КОД ДЛЯ ПОКУПАТЕЛЯ
     while True:
-        choice = input('Будете что-то приобретать? ')
-        if choice.lower() == 'да':
+        print('Выберите способ покупки:\n', '1. На месте\n', '2. Доставка\n', '3. Выход')
+        choice = input()
+        if choice.lower() == '1':  # ПОКУПКА НА МЕСТЕ
             print('В магазине имеются товар: ')
             shop_print_func()  # ПЕЧАТЬ ТОВАРОВ
             print('Сейчас у вас ', money, ' рублей')
@@ -56,7 +57,7 @@ elif username.lower() != 'admin':  # КОД ДЛЯ ПОКУПАТЕЛЯ
             if money <= 54:
                 print('У вас недостаточно средств для покупок!')
                 break
-            product_choice = input('Что будете преобретать? ')
+            product_choice = input('Что будете приобретать? ')
             found = False
             for product_array in shop:  # ПОКУПКА ТОВАРА
                 if product_choice == product_array[0] and money >= product_array[1]:
@@ -66,6 +67,23 @@ elif username.lower() != 'admin':  # КОД ДЛЯ ПОКУПАТЕЛЯ
                     found = True
             if not found:
                 print('Такой товар не найден:')
-        elif choice.lower() == 'нет':
+        elif choice.lower() == '2':  # ДОСТАВКА
+            shop_print_func()  # ПЕЧАТЬ ТОВАРОВ
+            product_choice = input('Что будете приобретать?')
+            for product_array in shop:  # ПОКУПКА ТОВАРА
+                if product_choice == product_array[0]:
+                    transfer.append(product_array[0])
+                    print(f'Вы выбрали {product_choice}. Введите адресс доставки')
+                    address = input()
+                    print(
+                        ' Ваш заказ:\n',
+                        f'Имя - {username}\n',
+                        f'Товар - {product_choice}\n',
+                        f'Адресс доставки - {address}',
+                    )
+                    found = True
+            if not found:
+                print('Такой товар не найден:')
+        else:
             print('Выход из магазина')
             break
