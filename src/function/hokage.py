@@ -8,15 +8,14 @@
 # https://i.imgur.com/9qxKBQD.png
 def form_word(entered_honey_badger):
     honey_badger = 'медоед'
-    if entered_honey_badger in range(11, 20):
+    count_honey_badger_10 = entered_honey_badger % 10
+    count_honey_badger_100 = entered_honey_badger % 100
+    if count_honey_badger_100 in range(11, 20):
         print(f'Вот вам {entered_honey_badger} {honey_badger + "ов"}')
     else:
-        count_honey_badger = entered_honey_badger % 10
-        form_medoed = [1]
-        form_medoeda = [2, 3, 4]
-        if count_honey_badger in form_medoed:
+        if count_honey_badger_10 == 1:
             print(f'Вот вам {entered_honey_badger} {honey_badger}')
-        elif count_honey_badger in form_medoeda:
+        elif count_honey_badger_10 in range(2, 5):
             print(f'Вот вам {entered_honey_badger} {honey_badger + "а"}')
         else:
             print(f'Вот вам {entered_honey_badger} {honey_badger + "ов"}')
