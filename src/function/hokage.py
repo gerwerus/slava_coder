@@ -23,4 +23,3 @@ def honey_badger_word_form(entered_honey_badger):
 
 entered_honey_badger = int(input('Сколько вам медоедов:\n'))
 print(f'Вот вам {entered_honey_badger} {honey_badger_word_form(entered_honey_badger)}')
-
