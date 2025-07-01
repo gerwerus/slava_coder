@@ -6,9 +6,8 @@ array = list(range(1, 101))
 for i in array:
     if i % 3 == 0 and i % 5 == 0:
         i = 'тыры-пыры'
-    else:
-        if i % 3 == 0:
-            i = 'тыры'
-        elif i % 5 == 0:
-            i = 'пыры'
+    elif i % 3 == 0:
+        i = 'тыры'
+    elif i % 5 == 0:
+        i = 'пыры'
     print(i)

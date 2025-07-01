@@ -7,10 +7,10 @@
 array = list(range(301))
 even_array = []
 uneven_array = []
-for i in array:
-    if i % 2 == 0:
-        even_array.append(i)
+for number in array:
+    if number % 2 == 0:
+        even_array.append(number)
     else:
-        uneven_array.append(i)
+        uneven_array.append(number)
 
 print(f'Четные числа:\n{even_array}\nНечетные числа:\n{uneven_array}')
