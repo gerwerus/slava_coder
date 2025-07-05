@@ -6,7 +6,8 @@ exclude = [  # Исключаем старые задания, чтобы на �
     "src/cycles/*.py",
     "src/function/*.py",
     "src/massive/*.py",
-    "src/range/*.py",
+    "src/range/even_uneven.py",
+    "src/range/tiri_piri.py",
 ]
 
 [tool.ruff.lint]
