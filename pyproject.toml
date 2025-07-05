@@ -1,0 +1,9 @@
+[tool.ruff]
+target-version = "py313"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["B", "COM", "N", "E", "ISC", "W", "F", "RET", "SIM", "PL"]
+
+[tool.ruff.format]
+quote-style = "single"
