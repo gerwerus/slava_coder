@@ -29,8 +29,8 @@ def print_result_bmi(bmi: float) -> str:
 
 
 tables = pd.read_html(
-    'https://ru.wikipedia.org/wiki/%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81_%D0%BC%D0%B0%D1%81%D1%81%D1%8B_%D1%82%D0%B5%D0%BB%D0%B0'
-)
+    'https://ru.wikipedia.org/wiki/%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81_%D0%BC%D0%B0%D1%81%D1%81%D1%8B_'
+    '%D1%82%D0%B5%D0%BB%D0%B0')
 print(tables[0])
 weight = float(input('Введите ваш вес (кг):\n'))
 height = float(input('Введите ваш рост (м):\n'))
