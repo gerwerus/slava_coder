@@ -8,24 +8,29 @@
 # От 74 до 90 - молоды в душе
 # От 90 и выше - долгожители
 # Вы занесены в группу - взрослые
-def sort_group_age(entered_age):
+# МБ какую-нибудь валидацию прикрутить? (Если пользователь ввел -2, а если 350?) 130
+def sort_group_age(entered_age: int) -> str:
     if entered_age in range(0, 12):
-        return 'дети'
+        people_group = 'дети'
     elif entered_age in range(12, 18):
-        return 'подростки'
+        people_group = 'подростки'
     elif entered_age in range(18, 27):
-        return 'клуб 27'
+        people_group = 'клуб 27'
     elif entered_age in range(27, 45):
-        return 'молодые'
+        people_group = 'молодые'
     elif entered_age in range(45, 60):
-        return 'зрелые'
+        people_group = 'зрелые'
     elif entered_age in range(60, 74):
-        return 'пожилые'
+        people_group = 'пожилые'
     elif entered_age in range(74, 90):
-        return 'молодые в душе'
+        people_group = 'молодые в душе'
     else:
-        return 'долгожители'
+        people_group = 'долгожители'
+    return people_group
 
 
 entered_age = int(input('Введите ваш возраст:\n'))
-print(f'Вы занесены в группу - {sort_group_age(entered_age)}')
+if entered_age < int(0) or entered_age > int(130):
+    print('Проверьте правильность ввода возраста!')
+else:
+    print(f'Вы занесены в группу - {sort_group_age(entered_age)}')
