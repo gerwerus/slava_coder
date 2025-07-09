@@ -9,6 +9,10 @@
 # От 90 и выше - долгожители
 # Вы занесены в группу - взрослые
 # МБ какую-нибудь валидацию прикрутить? (Если пользователь ввел -2, а если 350?) 130
+MINIMUM_AGE = 0
+MAXIMUM_AGE = 130
+
+
 def sort_group_age(entered_age: int) -> str:
     if entered_age in range(0, 12):
         people_group = 'дети'
@@ -30,7 +34,7 @@ def sort_group_age(entered_age: int) -> str:
 
 
 entered_age = int(input('Введите ваш возраст:\n'))
-if entered_age < int(0) or entered_age > int(130):
+if entered_age < MINIMUM_AGE or entered_age > MAXIMUM_AGE:
     print('Проверьте правильность ввода возраста!')
 else:
     print(f'Вы занесены в группу - {sort_group_age(entered_age)}')

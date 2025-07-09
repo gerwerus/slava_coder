@@ -5,25 +5,57 @@
 # Программа должна спрашивать у пользователя его параметры, вычислять его индекс массы тела,
 # а потом выдавать вердикт по таблице из Википедии.
 # https://i.imgur.com/NHbQvqr.png
+# >>> from enum import Enum
 
+# >>> class Day(Enum):
+# ...     MONDAY = 1
+# ...     TUESDAY = 2
+# ...     WEDNESDAY = 3
+# ...     THURSDAY = 4
+# ...     FRIDAY = 5
+# ...     SATURDAY = 6
+# ...     SUNDAY = 7
+# ...
 
+# >>> list(Day)
+# [
+#     <Day.MONDAY: 1>,
+#     <Day.TUESDAY: 2>,
+#     <Day.WEDNESDAY: 3>,
+#     <Day.THURSDAY: 4>,
+#     <Day.FRIDAY: 5>,
+#     <Day.SATURDAY: 6>,
+#     <Day.SUNDAY: 7>
+# ]
+
+from enum import IntEnum
 import pandas as pd
 
 
+class WeightIndex(IntEnum):
+    VERY_LOW = 16
+    LOW = 18.5
+    NORMAL = 25
+    HIGH = 30
+    HIGH_1 = 35
+    HIGH_2 = 40
+    HIGH_3 = 40
+
+
 def print_result_bmi(bmi: float) -> str:
-    if bmi <= int(16):
+    if bmi <= WeightIndex.VERY_LOW:
         bmi_determination = 'Выраженный дефицит массы телы'
-    elif bmi <= int(18.5):
+    elif bmi <= WeightIndex.LOW:
         bmi_determination = 'Недостаточная (дефицит) масса тела'
-    elif bmi <= int(25):
+    elif bmi <= WeightIndex.NORMAL:
         bmi_determination = 'Норма'
-    elif bmi <= int(30):
+    elif bmi <= WeightIndex.HIGH:
         bmi_determination = 'Избыточная масса тела (предожирение)'
-    elif bmi <= int(35):
+    elif bmi <= WeightIndex.HIGH_1:
         bmi_determination = 'Ожирение 1 степени'
-    elif bmi <= int(40):
+    elif bmi <= WeightIndex.HIGH_2:
         bmi_determination = 'Ожирение 2 степени'
-    elif bmi > int(40):
+    elif bmi > WeightIndex.HIGH_3:
         bmi_determination = 'Ожирение 3 степени'
     return bmi_determination
 

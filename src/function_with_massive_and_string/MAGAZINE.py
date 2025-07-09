@@ -12,6 +12,7 @@
 # а) Вывод списка всех товаров с ценами
 # б) Вывод списка всех товаров выбранного раздела
 
+
 # добавление продукта в раздел
 def add_product(shop: dict[str, dict[str, int]]) -> None:
     choice_group = input('Выберите в какой раздел добавить товар:\n')
@@ -131,6 +132,21 @@ def print_group_product(shop: dict[str, dict[str, int]]) -> None:
         print(f'{product} - {price}')
 
 
+ADMIN_ACTIONS = {
+    '1': add_product,
+    '2': del_product,
+    '3': change_price_product,
+    '4': percentage_markup_all_products,
+    '5': add_group,
+    '6': print_all_product,
+    '7': print_group_product,
+}
+USER_ACTIONS = {
+    '1': buy_add_to_cart,
+    '2': add_reviews,
+    '3': print_all_product,
+    '4': print_group_product,
+}
 shop = {'мучное': {'хлеб': 50, 'пряники': 70}, 'молочное': {'молоко': 100, 'кефир': 75}}
 print('Welcome to MAGAZINE!')
 username = input('Введите ваше имя:\n')
@@ -146,23 +162,11 @@ while True:
 6. Вывод списка всех товаров с ценами
 7. Вывод списка всех товаров выбранного раздела
 """)
-        match choice:
-            case '1':
-                add_product(shop)
-            case '2':
-                del_product(shop)
-            case '3':
-                change_price_product(shop)
-            case '4':
-                percentage_markup_all_products(shop)
-            case '5':
-                add_group(shop)
-            case '6':
-                print_all_product(shop)
-            case '7':
-                print_group_product(shop)
-            case _:
-                print('Неверно выбрано действие')
+        if choice in ADMIN_ACTIONS:
+            ADMIN_ACTIONS[choice](shop)
+        else:
+            print('Неверно выбрано действие')
+
     # панель покупателя
     else:
         print(f'Добро пожаловать {username}!')
@@ -171,16 +175,15 @@ while True:
 3. Вывод списка всех товаров с ценами
 4. Вывод списка всех товаров выбранного раздела
 """)
-        match choice:
-            case '1':
+        if choice in USER_ACTIONS:
+            action = USER_ACTIONS[choice]
+            if choice == '1':
                 shop_cart = []
-                buy_add_to_cart(shop, shop_cart)
-            case '2':
+                action(shop, shop_cart)
+            elif choice == '2':
                 reviews = {}
-                add_reviews(reviews)
-            case '3':
-                print_all_product(shop)
-            case '4':
-                print_group_product(shop)
-            case _:
-                print('Неверно выбрано действие')
+                action(reviews)
+            else:
+                action(shop)
+        else:
+            print('Неверно выбрано действие')
