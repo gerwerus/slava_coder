@@ -15,7 +15,7 @@ class MedicalCard:
         self.address = address
         self.diseases = diseases
 
-    def __str__(self):
+    def __str__(self) -> str:
         return (
             f'Пол: {self.gender}\n'
             f'Дата рождения: {self.date_birth}\n'

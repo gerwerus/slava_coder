@@ -192,8 +192,5 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 .vscode/
-src/shop/programm.py
-src/shop/data/молочный
-src/shop/data/мучной
-.gitignore
-src/shop/read.py
+src/shop/*
+

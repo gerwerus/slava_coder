@@ -11,7 +11,7 @@ class Movie:
         self.director = director
         self.year_show = year_show
 
-    def get_info(self) -> None:
+    def print_info(self) -> None:
         movie_favorite_array = [self.title, self.director, self.year_show]
         for atribute in movie_favorite_array:
             print(atribute)
