@@ -2,16 +2,20 @@
 # https://i.imgur.com/3NOJLi4.png
 
 import requests
-# import pprint
-# pprint.pprint(response.json())
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+TOKEN = os.getenv('TOKEN')
+DOMAIN = os.getenv('DOMAIN')
 
 
 class ConvertCurrency:
-    def __init__(self) -> None:
-        self.response = requests.get('http://data.fixer.io/api/latest?access_key=758905bfd3483d0c4c6ecb3884333cf8')
-
     def get_rates(self, from_currency: str, to_currency: str, count: int) -> float:
-        data = self.response.json()
+        response = requests.get(f'{DOMAIN}?access_key={TOKEN}')
+        data = response.json()
         self.rates = data['rates']
         self.result_currency = (count * self.rates[from_currency]) / self.rates[to_currency]
         return self.result_currency
