@@ -9,12 +9,18 @@ from dotenv import load_dotenv
 load_dotenv()
 
 TOKEN = os.getenv('TOKEN')
-DOMAIN = os.getenv('DOMAIN')
+DOMAIN = 'http://data.fixer.io/api/latest'
 
 
 class ConvertCurrency:
     def get_rates(self, from_currency: str, to_currency: str, count: int) -> float:
-        response = requests.get(f'{DOMAIN}?access_key={TOKEN}')
+        params = {
+            'access_key': TOKEN,
+            'from': from_currency,
+            'to': to_currency,
+            'amount': count,
+        }
+        response = requests.get(DOMAIN, params=params)
         data = response.json()
         self.rates = data['rates']
         self.result_currency = (count * self.rates[from_currency]) / self.rates[to_currency]

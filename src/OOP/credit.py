@@ -34,7 +34,7 @@ class Gender(StrEnum):
 class EstimationCredit:
     fio: str
     age: int
-    gender: str
+    gender: Gender
     monthly_income: float
     credit_history: str
     requested_amount: float
