@@ -12,12 +12,14 @@
 # Какая столица Португалии? Лиссабон
 import json
 
+
 def main() -> None:
     with open('quiz.json', 'r', encoding='utf-8') as file:
         quiz_data = json.load(file)
 
     quiz = Quiz(quiz_data)
     quiz.start_quiz()
+
 
 class Quiz:
     def __init__(self, quiz_data: list[dict[str, str]]) -> None:
