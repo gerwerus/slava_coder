@@ -193,4 +193,5 @@ cython_debug/
 .cursorindexingignore
 .vscode/
 src/shop/*
+.env
 
