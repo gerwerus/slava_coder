@@ -8,7 +8,7 @@
 COUNT_PRODUCTS_MIN = 1
 
 
-def main():
+def main() -> None:
     products = [
         Book('Идиот', 250),
         Book('Мастер и Маргарита', 500),
@@ -43,38 +43,38 @@ def main():
 
 
 class Product:
-    def __init__(self, name, price):
+    def __init__(self, name: str, price: int) -> None:
         self.name = name
         self.price = price
 
 
 class Book(Product):
-    def __init__(self, name, price):
+    def __init__(self, name: str, price: int) -> None:
         super().__init__(name, price)
         self.type = 'Книга'
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f'({self.type}. {self.name!r}, {self.price!r})'
 
 
 class Film(Product):
-    def __init__(self, name, price):
+    def __init__(self, name: str, price: int) -> None:
         super().__init__(name, price)
         self.type = 'Фильм'
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f'({self.type}. {self.name!r}, {self.price!r})'
 
 
 class Shop:
-    def __init__(self, products):
+    def __init__(self, products: type[Book | Film]) -> None:
         self.products = products
 
-    def print_products(self):
+    def print_products(self) -> None:
         for i, product in enumerate(self.products):
             print(f'{i + 1}. {product.type}: {product.name}. Цена: {product.price}')
 
-    def buy_products(self, product_choice, current_cost):
+    def buy_products(self, product_choice: int, current_cost: int) -> int:
         products = self.products[product_choice - 1]
         print(f'В корзину добавлен товар {products.type}. {products.name}')
         self.products.pop(product_choice - 1)
